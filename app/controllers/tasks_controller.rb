@@ -16,25 +16,22 @@ before_action :set_task, only: [:edit, :show, :update, :destroy]
     @task = Task.new(task_params)
     @task.save
 
-    redirect_to tasks_path(@task)
+    redirect_to tasks_path
   end
 
   def edit
-
   end
 
   def update
-
     @task.update(task_params)
 
-    redirect_to task_params(@task)
+    redirect_to task_path(@task)
   end
 
   def destroy
-
     @task.destroy
 
-    redirect_to tasks_path, status: :see_other
+    redirect_to tasks_path
   end
 
   private
@@ -44,6 +41,6 @@ before_action :set_task, only: [:edit, :show, :update, :destroy]
   end
 
   def task_params
-    params.require(:task).permit(:title, :details)
+    params.require(:task).permit(:title, :details, :completed)
   end
 end

@@ -1,8 +1,14 @@
+<br><br><%= link_to "Home",
+  tasks_path(@task)
+%>
 <h2><%= @task.title %></h2>
 <p><%= @task.details %></p>
 <p><%= @task.completed %></p>
 
+<%= link_to "Edit task",
+  edit_task_path(@task)
+%><br>
 <%= link_to "Delete",
-  tasks_path(@task),
-  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+  task_path(@task),
+  method: :delete
 %>
